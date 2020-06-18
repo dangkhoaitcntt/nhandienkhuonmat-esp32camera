@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Mở cửa nhận diện khuôn mặt</title>
     <style>
-      @media only screen and (min-width: 850px) {
+      @media only screen and (min-width: 770px) {
         body {
           display: flex;
         }
@@ -20,11 +20,11 @@
         font-size: 16px;
       }
       #content-left {
-        max-width: 400px;
+        max-width: 500px;
         flex: 1;
       }
       #content-right {
-        max-width: 400px;
+        max-width: 500px;
         flex: 1;
       }
       #stream {
@@ -112,7 +112,6 @@
     </style>
   </head>
   <body>
-      <p>Hình ảnh thu từ camera</p>
       <div id="content-left">
         <div id="stream-container" class="image-container">
           <img id="stream" src="" />
@@ -151,9 +150,6 @@
         <div class="buttons">
           <button id="delete_all">Xóa tất cả khuôn mặt</button>
         </div>
-      </div>
-      <div style="vertical-align: bottom; color: cornflowerblue;">
-        <p>margin-bottom: 10px;</p>
       </div>
     <script>
       document.addEventListener("DOMContentLoaded", function (event) {
