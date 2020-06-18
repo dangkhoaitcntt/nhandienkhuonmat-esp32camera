@@ -4,30 +4,40 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Mở cửa nhận diện khuôn mặt</title>
+  </head>
+  <body>
     <style>
+      @media only screen and (min-width: 850px) {
+        .main {
+          display: flex;
+        }
+        #content-right {
+          margin-left: 10px;
+        }
+      }
       body {
         font-family: Arial, Helvetica, sans-serif;
-        color: #0a0606;
         font-size: 16px;
       }
       #content-left {
-        max-width: 30%;
-        background-color: #a0a0a0;
+        max-width: 400px;
+        background-color: silver;
+        flex: 1;
       }
       #content-right {
-        max-width: 30%;
+        max-width: 400px;
+        flex: 1;
       }
       #stream {
         width: 100%;
       }
       #status-display {
         height: 25px;
-        border: none;
         padding: 10px;
         font: 18px/22px sans-serif;
         margin-bottom: 10px;
+        background-color: slategray;
         border-radius: 5px;
-        background: green;
         text-align: center;
       }
       #person {
@@ -46,10 +56,8 @@
         padding: 0 12px;
         border: 0;
         width: 48%;
-        line-height: 35px;
+        line-height: 28px;
         cursor: pointer;
-        color: #fff;
-        background: #5630ff;
         border-radius: 5px;
         font-size: 16px;
         outline: 0;
@@ -58,10 +66,10 @@
         height: 40px;
       }
       button:hover {
-        background: #e08a8b;
+        background: #c2c2c2;
       }
       button:active {
-        background: #f21c21;
+        background: #645d5d;
       }
       button:disabled {
         cursor: default;
@@ -98,49 +106,59 @@
       h3 {
         margin-bottom: 3px;
       }
+      .title {
+        text-align: center;
+      }
+      .end {
+        text-align: center;
+      }
     </style>
-  </head>
-  <body>
-    <div><h3>ĐỒ ÁN TỔNG HỢP - XÂY DỰNG MÔ HÌNH NHÀ THÔNG MINH</h3></div>
-    <div><div id="content-left">
-      <div id="stream-container" class="image-container">
-        <img id="stream" src="" />
+    <div class="title">
+      <h3>ĐỒ ÁN TỔNG HỢP - XÂY DỰNG HỆ THỐNG NHÀ THÔNG MINH</h3>
+    </div>
+    <div class="main">
+      <div id="content-left">
+        <div id="stream-container" class="image-container">
+          <img id="stream" src="" />
+        </div>
+      </div>
+      <div id="content-right">
+        <div id="status-display"><span id="current-status"></span></div>
+        <div id="person-name">
+          <input
+            id="person"
+            type="text"
+            value=""
+            placeholder="Nhập tên khuôn mặt mới"
+          />
+        </div>
+        <div class="buttons">
+          <button id="button-stream" class="left">Tắt tìm khuôn mặt</button>
+          <button id="button-detect" class="right">Tìm khuôn mặt</button>
+        </div>
+        <div class="buttons">
+          <button
+            id="button-capture"
+            class="left"
+            title="Enter a name above before capturing a face"
+          >
+            Thêm khuôn mặt
+          </button>
+          <button id="button-recognise" class="right">
+            Mở cửa
+          </button>
+        </div>
+        <div class="people">
+          <h3>Khuôn mặt đã lưu</h3>
+          <ul></ul>
+        </div>
+        <div class="buttons">
+          <button id="delete_all">Xóa tất cả khuôn mặt</button>
+        </div>
       </div>
     </div>
-    <div id="content-right">
-      <div id="status-display"><span id="current-status"></span></div>
-      <div id="person-name">
-        <input
-          id="person"
-          type="text"
-          value=""
-          placeholder="Nhập tên khuôn mặt mới"
-        />
-      </div>
-      <div class="buttons">
-        <button id="button-stream" class="left">Tắt tìm khuôn mặt</button>
-        <button id="button-detect" class="right">Tìm khuôn mặt</button>
-      </div>
-      <div class="buttons">
-        <button
-          id="button-capture"
-          class="left"
-          title="Nhập tên trước khi thêm khuôn mặt mới"
-        >
-          Thêm khuôn mặt
-        </button>
-        <button id="button-recognise" class="right">Mở cửa</button>
-      </div>
-      <div class="people">
-        <h3>Khuôn mặt đã lưu</h3>
-        <ul></ul>
-      </div>
-      <div class="buttons">
-        <button id="delete_all">Xóa tất cả khuôn mặt</button>
-      </div>
-    </div></div>
-    <div>
-      <p>Trần Đăng Khoa - 1611060152 - 16DTHB4</p>
+    <div class="end">
+      <p>TRẦN ĐĂNG KHOA - 1611060152 - CNTT</p>
     </div>
     <script>
       document.addEventListener("DOMContentLoaded", function (event) {
